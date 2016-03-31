@@ -28,6 +28,7 @@ def _same(d1, d2):
 
     for i in range(min(len(d1), len(d2))):
         if d1[i] != d2[i]:
+            print("Difference at index %i"%i)
             return False
     if len(d1) != len(d2):
         return False
@@ -90,7 +91,7 @@ def test_serial(workspace, parent_test):
     with serial.Serial(port, baudrate=baud, timeout=timeout) as sp:
 
         # Reset the target
-        sp.sendBreak()
+        #jjjjjjjjjjjjsp.sendBreak()
 
         # Wait until the target is initialized
         expected_resp = "{init}"
@@ -102,6 +103,8 @@ def test_serial(workspace, parent_test):
         write_thread.start()
         resp = sp.read(len(test_data))
         write_thread.join()
+        jjj1 = len(resp)
+        jjj2 = len(test_data)
         if _same(resp, test_data):
             test_info.info("Block test passed")
         else:

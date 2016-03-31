@@ -74,6 +74,7 @@ static main_led_state_t hid_led_state = MAIN_LED_FLASH;
 static main_led_state_t cdc_led_state = MAIN_LED_FLASH;
 static main_led_state_t msc_led_state = MAIN_LED_FLASH;
 
+
 // Global state of usb
 main_usb_connect_t usb_state;
 
