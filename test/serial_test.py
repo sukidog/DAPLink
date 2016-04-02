@@ -91,20 +91,18 @@ def test_serial(workspace, parent_test):
     with serial.Serial(port, baudrate=baud, timeout=timeout) as sp:
 
         # Reset the target
-        #jjjjjjjjjjjjsp.sendBreak()
-
+        sp.sendBreak()
+ 
         # Wait until the target is initialized
         expected_resp = "{init}"
         resp = sp.read(len(expected_resp))
         if not _same(resp, expected_resp):
             test_info.failure("Fail on init: %s" % resp)
-
+ 
         write_thread = Thread(target=sp.write, args=(test_data,))
         write_thread.start()
         resp = sp.read(len(test_data))
         write_thread.join()
-        jjj1 = len(resp)
-        jjj2 = len(test_data)
         if _same(resp, test_data):
             test_info.info("Block test passed")
         else:

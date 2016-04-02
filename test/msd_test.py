@@ -138,6 +138,7 @@ class MassStorageTester(object):
 
     def _check_data_correct(self, expected_data, test_info):
         """Return True if the actual data written matches the expected"""
+        
         data_len = len(expected_data)
         data_loaded = self.board.read_target_memory(0, data_len)
         return _same(expected_data, data_loaded)
@@ -274,7 +275,7 @@ def test_mass_storage(workspace, parent_test):
         test.set_shutils_copy(bin_file)
         test.set_expected_data(bin_file_contents)
         test.run()
-
+ 
     # Test loading a binary file with flushes
     if not bad_vector_table:
         test = MassStorageTester(board, test_info, "Load binary with flushes")
