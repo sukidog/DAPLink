@@ -38,7 +38,7 @@ There are three defined ways in which DAPLink can be extended.  These are adding
 
 
 ## Test
-DAPLink has an extensive set of automated tests written in Python. They are used for regressions testing, but you can use them to validate your DAPLink port. Details are [here](AUTOMATED_TESTING.md)
+DAPLink has an extensive set of automated tests written in Python. They are used for regression testing, but you can use them to validate your DAPLink port. Details are [here](AUTOMATED_TESTS.md)
 
 
 ## Release
